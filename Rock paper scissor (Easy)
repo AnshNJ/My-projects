@@ -1,0 +1,23 @@
+import random
+
+def rock_paper_scissor():
+    mylist = ['rock','paper','scissor']
+    
+    computer = random.choice(mylist)
+    
+    player = input("Enter rock, paper or scissor : ")
+    
+    print(f"Computer : {computer} | Player : {player}")
+    
+    if player == computer:
+          print("It's a draw")
+    elif is_win(player,computer):
+          print("Player Wins!")
+    else:
+          print("Player Lost!")
+          
+def is_win(player,computer):
+    if (player == 'rock' and computer == 'scissor') or (player == 'scissor' and computer == 'paper') or (player == 'paper' and computer == 'rock'):
+        return True
+    else:
+        return False
