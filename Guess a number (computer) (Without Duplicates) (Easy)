@@ -1,0 +1,19 @@
+def computer_guess(low,max,guess):
+    
+    mylist = set()
+    while True:
+        r = random.randint(low,max)
+        if r not in mylist:
+            if r==guess:
+                print(f"The computer guessed it! The correct number is {r}")
+                break
+            else:
+                mylist.add(r)
+                print(r)
+        
+        
+
+low_range = int(input("Enter the range starting from : "))           
+max_range = int(input("Enter the range in range uptil :  "))
+guess_number = int(input("Enter the number for computer to guess : "))
+computer_guess(low_range,max_range,guess_number)
