@@ -5,7 +5,7 @@ def rock_paper_scissor():
     
     computer = random.choice(mylist)
     
-    player = input("Enter rock, paper or scissor : ")
+    player = input("Enter rock, paper or scissor : ") #Here, we're assuming the user enters proper input, otherwise string check will add another 5-6 lines of code..
     
     print(f"Computer : {computer} | Player : {player}")
     
