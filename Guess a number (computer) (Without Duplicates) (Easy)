@@ -1,3 +1,4 @@
+import random
 def computer_guess(low,max,guess):
     
     mylist = set()
