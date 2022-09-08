@@ -1,0 +1,14 @@
+def computer_guess(item1,item2):
+    while True:
+        rand = random.randint(0,item2)
+        if rand == item1:
+            print(f"The correct number is : {rand}!")
+            break
+        else:
+            print(rand)
+            continue
+            
+low_range = int(input("Enter the range starting from : "))           
+max_range = int(input("Enter the range in range uptil :  "))
+guess_number = int(input("Enter the number for computer to guess : "))
+computer_guess(guess_number,max_range)
