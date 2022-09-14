@@ -1,0 +1,30 @@
+import bs4
+import requests
+import csv
+
+base_url = 'https://books.toscrape.com/catalogue/page-1.html'
+
+result = requests.get(base_url)
+
+result.encoding='UTF-8'
+
+soup = bs4.BeautifulSoup(result.text,'lxml')
+
+list = soup.select('.product_pod')
+
+#You can use with open to close file as soon as task is over but we'll use regular way here
+f = open('Books.csv','w',encoding='UTF-8-sig', newline ='')
+
+#Creating csv file
+thewriter = csv.writer(f)
+header = ['Title','Price','Availability'] #comma separates column in csv
+thewriter.writerow(header)
+
+#Scraping the data
+for lists in list:
+    title = lists.select('a')[1]['title']
+    price = lists.find('p',class_='price_color').text
+    availability = lists.find('p',class_='instock availability').text.replace('\n','').replace(" ",'')
+    books = [title , price , availability]
+    thewriter.writerow(books)
+f.close()
